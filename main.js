@@ -1,12 +1,14 @@
 const Discord = require('discord.js');
 const ResultReader = require('./resultReader.js')
+const fs = require('fs');
 
 const client = new Discord.Client();
 
 client.once('ready', () => {
     console.log("Beep Boop. Droid Online.");
-    ResultReader.readImg();
+    path = 'scoreboard.png';
+    const hocr = ResultReader.readImg(path);
     return;
 })
 
-client.login('NzU2MjExMzE5NTA1NTUxMzgw.X2OirA.nWG2Vtq6751LsFPAb8mJdjv0F0o')
+client.login('')
