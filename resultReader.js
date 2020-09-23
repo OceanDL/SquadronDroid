@@ -1,5 +1,6 @@
 const tesseract = require("node-tesseract-ocr");
 const fs = require('fs');
+const Jimp = require('jimp');
  
 
 const config = {
@@ -8,9 +9,16 @@ const config = {
   psm: 3,
   tessedit_create_hocr: 1,
   hocr_font_info: 0,
+  
 }
+
+
  
 function readImg(path){
+  Jimp.read(path, (err, image) => {
+    if (err) throw err;
+    image.greyscale().write(path);
+});
     const result = tesseract.recognize(path, config)
     .then(text => {
       fs.writeFile("hocrtest.hocr", text, function(err) {

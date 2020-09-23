@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
-const ResultReader = require('./resultReader.js')
+//const ResultReader = require('./resultReader.js')
+const ResultReader = require('./googleResultReader.js');
 const fs = require('fs');
+const vision = require('@google-cloud/vision');
 
 const client = new Discord.Client();
 
@@ -11,4 +13,4 @@ client.once('ready', () => {
     return;
 })
 
-client.login('')
+client.login('');
